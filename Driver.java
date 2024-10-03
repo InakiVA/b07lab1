@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Driver {
     public static void main(String[] args) {
         Polynomial p = new Polynomial();
@@ -12,5 +14,11 @@ public class Driver {
             System.out.println("1 is a root of s");
         else
             System.out.println("1 is not a root of s");
+        Polynomial m = p1.multiply(p2);
+        System.out.println("m(0.1) = " + m.evaluate(0.1));
+        File file = new File("given_polynomial.txt");
+        Polynomial pf = new Polynomial(file);
+        System.out.println("Non-redundant exponent-ordered file-given polynomial: " + pf.stringPolynomial());
+        pf.saveToFile("resulting_polynomial.txt");
     }
 }
